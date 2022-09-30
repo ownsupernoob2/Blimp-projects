@@ -1,221 +1,173 @@
 body {
-    font-family: sans-serif;
-    margin: 0px;
+  font-family: sans-serif;
+  margin: 0px;
 }
 
 #Header {
-    background-color: rgb(225, 225, 225);
-    padding: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  background-color: rgb(225, 225, 225);
+  padding: 10px;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #Left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .Section {
-    background-color: rgb(28, 141, 212);
+    border-top: solid 2px  rgb(28, 89, 138);
+
     padding: 10px;
-    color: white;
+  color: rgb(28, 89, 138);
+  text-align: center;
 }
 
 img {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 p {
-    color: rgb(100, 100, 100);
+  color: rgb(100, 100, 100);
 }
 
 a {
-    text-decoration: none;
-    color: rgb(28, 141, 212);
+  text-decoration: none;
+  color: rgb(28, 141, 212);
 }
 
 #content {
-    margin-left: 10%;
-    margin-right: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 #Search {
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 #Submit {
-    background-color: rgb(28, 141, 212);
-    border-radius: 20px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+  background-color: rgb(28, 141, 212);
+  border-radius: 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
+
+/* styles for the add profile button on the navbar */
 
 #Create {
-    background-color: rgb(28, 141, 212);
-    border-radius: 10%;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+  background-color: rgb(28, 141, 212);
+  border-radius: 10%;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
+
+/* styles for the profile container container?? (Yoga made this I don't even know anymore) */
 
 #Profiles {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+
+/* styles for the profile container */
 
 .Profile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 20%;
-    width: 20%;
-    border-width: 20px;
-    border-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 20%;
+  width: 20%;
+  border-width: 20px;
+  border-color: black;
 }
+
+/* styles for the profile image */
+
 .Profile img {
+  padding: 5px;
+  object-fit: fill;
+  width: 220px;
+  height: 300px;
+  border-radius: 15px;
+  background-position: center center;
 
-padding: 5px;
-object-fit: fill;
-width: 220px;
-height: 300px;
-border-radius: 15px;
-background-position: center center;
-
-background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
+
+/* styles for the grid container */
 
 .container {
-    display: grid;
-    grid-template-columns: 0fr 0fr 0fr;
-    background-color: #ffffff;
-    padding: 10px;
-    align-self: center;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 0fr 0fr 0fr;
+  background-color: #ffffff;
+  padding: 10px;
+  align-self: center;
+  gap: 20px;
+}
 
-  }
-  .container details {
-    background-color: rgba(86, 162, 237, 0.8);
-    padding-top: 20px;
-    border: 3px solid rgb(255, 213, 0);
-    height: 230px;
-    width: 230px;
-    object-fit: fill;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    border-radius: 20px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+/* styles for the grid items */
 
+.items {
+  background-color: rgba(86, 162, 237, 0.8);
+  padding-top: 20px;
+  border: 3px solid rgb(255, 213, 0);
+  height: 230px;
+  width: 230px;
+  object-fit: fill;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
 
-    
+/* styles for the link */
+.container a {
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  padding: 0.75em 3em 0.75em 1.25em;
+  border-radius: 99em;
+  font-size: 20px;
+  font-weight: bold;
+  border: 3px solid rgb(255, 213, 0);
 
-  }
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: #185adb;
+  box-shadow: 0 5px 15px rgba(163, 163, 163, 0.1);
+  list-style: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: 0.15s ease;
+  position: relative;
+}
+.container a:hover {
+  font-size: 21px;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.731);
+}
 
- .container details div {
-    background-color: #1e1e27;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    padding: 1.25rem;
-    border-radius: 8px;
-    position: absolute;
-    max-height: calc(100vh - 100px);
-    width: 400px;
-    max-width: calc(100vw - 2rem);
-    bottom: calc(100% + 1rem);
-    right: 0;
-    overflow: auto;
-    transform-origin: 100% 100%;
-    color: #95a3b9;
-  }
-  .contianer details div::-webkit-scrollbar {
-    width: 15px;
-    background-color: #1e1e27;
-  }
- .container details div::-webkit-scrollbar-thumb {
-    width: 5px;
-    border-radius: 99em;
-    background-color: #95a3b9;
-    border: 5px solid #1e1e27;
-  }
- .container details div > * + * {
-    margin-top: 0.75em;
-  }
-  .container details div p > code {
-    font-size: 1rem;
-    font-family: monospace;
-  }
-  .container details div pre {
-    white-space: pre-line;
-    border: 1px solid #95a3b9;
-    border-radius: 6px;
-    font-family: monospace;
-    padding: 0.75em;
-    font-size: 0.875rem;
-    color: #fff;
-  }
-  .container details[open] div {
-      position: fixed;
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 50%;
-      left: 50%;
-      margin-top: -25%; 
-      margin-left: -250px; 
-  }
-  
-  .container  summary {
-    display: inline-flex;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    padding: 0.75em 3em 0.75em 1.25em;
-    border-radius: 99em;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    color:rgb(255, 255, 255);
-        background-color: #185adb;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.15s ease;
-    position: relative;
-
-  }
-
-  
-
-  @-webkit-keyframes scale {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes scale {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+.showcase {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
