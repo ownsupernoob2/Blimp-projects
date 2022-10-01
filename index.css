@@ -1,18 +1,108 @@
 body {
   font-family: sans-serif;
   margin: 0px;
+  background-color: #d0edff;
+}
+
+a {
+  text-decoration: none;
+ }
+ li {
+  list-style: none;
+ }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 #Header {
-  background-color: rgb(225, 225, 225);
   padding: 10px;
   padding-left: 10%;
   padding-right: 10%;
-  height: 100px;
+  
+  height: 75px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.navbar {
+  display: flex;
+  background-image: linear-gradient(to right, #1c8dd4,  #1c8dd4, #3165cd);
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #1c8dd4;;
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  height: 99px;
+  margin-bottom: 50px;
+
+  border-bottom: solid #2964db 4px;
+ }
+ .nav-links a {
+  color: #fff;
+ }
+ .logo {
+  display: flex;
+  font-size: 32px;
+  align-items: center;
+ }
+ .menu {
+  display: flex;
+  gap: 1em;
+  font-size: 18px;
+ }
+ .menu .active {
+  border-radius: 5px;
+  background-color:#2964db;
+
+  transition: 0.3s ease;
+  border-bottom: solid #ffffff 1px;
+ }
+ .menu li:hover {
+  border-radius: 5px;
+  background-color: #154ab3;
+  transition: 0.3s ease;
+  border-bottom: solid #ffffff 2px;
+ }
+ .menu li {
+  padding: 5px 14px;
+ }
+ .services {
+  position: relative; 
+ }
+ .dropdown {
+  background-color:  #009bfb;
+  padding: 1em 0;
+  position: absolute; 
+  display: none;
+  border-radius: 8px;
+  top: 35px;
+ }
+ .dropdown li + li {
+  margin-top: 10px;
+ }
+ .dropdown li {
+  padding: 0.5em 1em;
+  width: 8em;
+  text-align: center;
+ }
+ .dropdown li:hover {
+  background-color:#2964db;
+
+  border-bottom: solid #ffffff 2px;
+
+ }
+ .services:hover .dropdown {
+  display: block;
+ }
+
+.header-title {
+  color: white;
+  font-size: 25px;
 }
 
 #Left {
@@ -22,27 +112,90 @@ body {
 }
 
 .Section {
-    border-top: solid 2px  rgb(28, 89, 138);
-
-    padding: 10px;
-  color: rgb(28, 89, 138);
+  padding: 10px;
+  background-color:rgb(51, 152, 234); ;
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  border-bottom: solid #2964db 4px;
   text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
+
+input[type=checkbox]{
+  display: none;
+ } 
+ .hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+ }
+ @media (max-width: 768px) {
+ .menu { 
+  display:none;
+  position: absolute;
+  background-image: linear-gradient(to right, #1c8dd4,  #1c8dd4, #3165cd);
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin-top: 10px;
+  padding: 16px 0;
+  border-bottom: solid #2964db 4px;
+
+ }
+ .dropdown {
+  background-color:  #1c8dd4;
+  padding: 1em 0;
+  position: absolute; 
+  display: none;
+  border-radius: 8px;
+  top: 35px;
+ }
+
+ .menu .active {
+  background-color:#2964db;
+  transition: 0.3s ease;
+  border-radius: 0px;
+ }
+ .menu li:hover {
+  background-color:#2050b1;
+  transition: 0.3s ease;
+  border-radius: 0px;
+
+ }
+
+ input[type=checkbox]:checked ~ .menu{
+  display: block;
+ }
+ .hamburger {
+  display: block;
+ }
+ .dropdown {
+  left: 50%;
+  top: 30px;
+  transform: translateX(35%);
+ }
+ .dropdown li:hover {
+  background-color: #1c8dd4;;
+ }
+ }
 
 img {
   border-radius: 20px;
 }
 
 p {
-  color: rgb(100, 100, 100);
+  color: rgb(255, 255, 255);
+  text-align: center;
 }
 
 a {
   text-decoration: none;
   color: rgb(28, 141, 212);
+  text-align: center;
 }
 
-#content {
+#Content {
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -51,29 +204,26 @@ a {
   padding: 10px;
   border-radius: 5px;
   margin: 10px;
+  box-shadow: none;
+  border: none;
+  border-bottom: solid #2964db 3px;
 }
 
-#Submit {
-  background-color: rgb(28, 141, 212);
+#Button {
+  background-color: rgb(255, 255, 255);
   border-radius: 20px;
-  color: white;
+  color: #1c8dd4;
   border: none;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
+  border-bottom: solid #2964db 3px;
+
 }
 
 /* styles for the add profile button on the navbar */
 
-#Create {
-  background-color: rgb(28, 141, 212);
-  border-radius: 10%;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
-}
+
 
 /* styles for the profile container container?? (Yoga made this I don't even know anymore) */
 
@@ -96,7 +246,7 @@ a {
   border-color: black;
 }
 
-/* styles for the profile image */
+/* styles for the parofile image */
 
 .Profile img {
   padding: 5px;
@@ -109,21 +259,10 @@ a {
   background-repeat: no-repeat;
 }
 
-/* styles for the grid container */
-
-.container {
-  display: grid;
-  grid-template-columns: 0fr 0fr 0fr;
-  background-color: #ffffff;
-  padding: 10px;
-  align-self: center;
-  gap: 20px;
-}
-
 /* styles for the grid items */
 
 .items {
-  background-color: rgba(86, 162, 237, 0.8);
+  background-color: rgb(51, 152, 234);
   padding-top: 20px;
   border: 3px solid rgb(255, 213, 0);
   height: 230px;
@@ -133,6 +272,20 @@ a {
   border-radius: 20px;
   padding: 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.item p {
+  color: white;
+}
+
+/* styles for the grid container */
+
+.container {
+  display: grid;
+  grid-template-columns: 0fr 0fr 0fr;
+  padding: 10px;
+  align-self: center;
+  gap: 20px;
 }
 
 /* styles for the link */
@@ -160,6 +313,7 @@ a {
   transition: 0.15s ease;
   position: relative;
 }
+
 .container a:hover {
   font-size: 21px;
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.731);
