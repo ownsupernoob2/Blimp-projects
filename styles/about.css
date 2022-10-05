@@ -1,0 +1,141 @@
+
+#service .box img {
+    margin-top: 10px;
+    height: 150px;
+    margin: auto;
+    display: block;
+    border-radius: 200px;
+}
+
+#service .box p {
+
+    text-align: center;
+}
+
+#services {
+    margin: 34px;
+    display: flex;
+}
+
+#services .box {
+
+    padding: 100px;
+    margin: 3px 6px;
+    border-radius: 28px;
+}
+
+#services .box img {
+    margin-top: 10px;
+    height: 150px;
+    margin: auto;
+    display: block;
+    border-radius: 100px;
+}
+
+#services .box p {
+
+    text-align: center;
+}
+
+.btn {
+    padding: 8px 20px;
+    margin: 7px 0;
+    border: 2px solid white;
+    border-radius: 8px;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-sm {
+    padding: 6px 10px;
+    vertical-align: middle;
+}
+
+.center {
+    text-align: center;
+}
+
+
+
+.card {
+    font-family: 'Lato', Arial, sans-serif;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background-color: rgb(51, 152, 234);
+    border: 3px solid rgb(255, 213, 0);
+
+    border-radius: 20px;
+    margin: 10px;
+    min-width: 250px;
+    max-width: 310px;
+    width: 100%;
+    color: #ffcc00;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    
+  }
+  
+  .card .profile-image {
+
+    padding: 15% 10% 0;
+  }
+  
+  .card .profile-image img {
+    border: 3px solid rgb(255, 213, 0);
+    background-color: white;
+    padding: 15px;
+    
+    max-width: 100%;
+    vertical-align: top;
+    position: relative;
+    border-radius: 50%;
+    max-width: 40%;
+  }
+  
+  .card figcaption {
+    padding: 5% 10% 15%;
+  }
+  
+  .card h3 {
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    font-size: 30px;
+    -webkit-text-stroke: 1px #14638e;
+
+    margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 3px 0;
+  }
+  
+  .card h5 {
+    font-weight: 400;
+    margin: 0px;
+    text-transform: uppercase;
+    color: rgb(6, 95, 119);
+    letter-spacing: 1px;
+  }
+  
+  .card .icons i {
+    color: rgb(255, 196, 0);
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 1.5em;
+  }
+  
+  .card .icons i:hover {
+    color: #555;
+  }
+  
+  .card .icons a {
+    text-decoration: none;
+    color: rgb(255, 198, 101);
+  }

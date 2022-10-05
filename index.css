@@ -1,7 +1,21 @@
+
+/*  fonts and icon  */
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+
 body {
   font-family: sans-serif;
   margin: 0px;
   background-color: #d0edff;
+  scroll-behavior: smooth;
+
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -28,6 +42,9 @@ li {
   align-items: center;
   justify-content: space-between;
 }
+nav {
+  display: fixed
+}
 .navbar {
   display: flex;
   background-image: linear-gradient(to right, #1c8dd4, #1c8dd4, #3165cd);
@@ -38,7 +55,6 @@ li {
   color: #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   height: 99px;
-  margin-bottom: 50px;
 
   border-bottom: solid #2964db 4px;
 }
@@ -179,6 +195,23 @@ input[type="checkbox"] {
   }
 }
 
+
+#Blimp {
+  position: relative;
+  animation-name: Fly;
+  animation-duration: 2s;
+  margin-right: 10px;
+  transform: rotateY(180deg);
+  transition-delay: 3s;
+  -webkit-transform: scaleX(1);transform: scaleX(1);
+}
+
+@keyframes Fly {
+  0% {right: 1000px; -webkit-transform: scaleX(-1); transform: scaleX(-1);}
+  75% {right: 0px; -webkit-transform: scaleX(-1); transform: scaleX(-1);}
+  100% {right: 0px; -webkit-transform: scaleX(1); transform: scaleX(1);}
+}
+
 img {
   border-radius: 20px;
 }
@@ -195,8 +228,8 @@ a {
 }
 
 #Content {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 10%;
+  margin-top: 0px;
 }
 
 #Search {
@@ -255,68 +288,62 @@ a {
   background-repeat: no-repeat;
 }
 
-/* styles for the grid items */
+/* introduction */
 
-.items {
-  background-color: rgb(51, 152, 234);
-  padding-top: 20px;
-  border: 3px solid rgb(255, 213, 0);
-  height: 230px;
-  width: 230px;
-  overflow: hidden;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+.background {
+  background-image: linear-gradient(to right, #1c8dd4, #1c8dd4, #3165cd);
+  background-blend-mode: darken;
+  background-size: cover;
 }
 
-.item p {
-  color: white;
+.firstsection {
+  height: 100vh;
 }
 
-/* styles for the grid container */
-
-.container {
-  display: grid;
-  grid-template-columns: 0fr 0fr 0fr;
-  padding: 10px;
-  align-self: center;
-  gap: 20px;
-  transition: 0.15s ease;
-
+.remove-border {
+  border-bottom: none;
 }
 
-/* styles for the link */
-.container a {
-  display: inline-flex;
- 
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  padding: 0.75em 3em 0.75em 1.25em;
-  border-radius: 99em;
-  font-size: 20px;
-  font-weight: bold;
-  border: 3px solid rgb(255, 213, 0);
-  margin-bottom: 10px;
-  text-align: center;
-  color: rgb(255, 255, 255);
-  background-color: #185adb;
-  box-shadow: 0 5px 15px rgba(163, 163, 163, 0.1);
-  list-style: none;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  transition: 0.15s ease;
-}
-
-.container a:hover {
-  font-size: 21px;
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.731);
-}
-
-.showcase {
+.box-main {
   display: flex;
-  flex: 1;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  color: white;
+  max-width: 50%;
+  margin: auto;
+  height: 80%;
 }
+
+.firstHalf {
+  width: 75%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center
+}
+
+
+
+.text-big {
+  font-weight: bold;
+  font-size: 41px;
+  text-align: center;
+}
+
+.text-small {
+  font-size: 18px;
+  text-align: center;
+}
+
+#service {
+  margin: 34px;
+  display: flex;
+}
+
+#service .box {
+  padding: 100px;
+  margin: 3px 6px;
+  border-radius: 28px;
+}
+
+ 
+
