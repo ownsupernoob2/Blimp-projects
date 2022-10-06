@@ -1,17 +1,13 @@
-
 /*  fonts and icon  */
 
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://fonts.googleapis.com/css?family=Oswald);
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-
 
 body {
-  font-family: sans-serif;
+  font-family: poppins-semibold, poppins, sans-serif;
   margin: 0px;
   background-color: #d0edff;
   scroll-behavior: smooth;
-
 }
 
 html {
@@ -43,9 +39,12 @@ li {
   justify-content: space-between;
 }
 nav {
-  display: fixed
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 .navbar {
+  margin-bottom: 80px;
   display: flex;
   background-image: linear-gradient(to right, #1c8dd4, #1c8dd4, #3165cd);
   align-items: center;
@@ -54,16 +53,17 @@ nav {
   background-color: #1c8dd4;
   color: #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  height: 99px;
+  height: 80px;
 
   border-bottom: solid #2964db 4px;
 }
+
 .nav-links a {
   color: #fff;
 }
 .logo {
   display: flex;
-  font-size: 32px;
+  font-size: 27px;
   align-items: center;
 }
 .menu {
@@ -134,7 +134,7 @@ nav {
   border-bottom: solid #2964db 4px;
   text-align: center;
   margin-top: 15px;
-  margin-bottom:30px ;
+  margin-bottom: 30px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -195,7 +195,6 @@ input[type="checkbox"] {
   }
 }
 
-
 #Blimp {
   position: relative;
   animation-name: Fly;
@@ -203,13 +202,8 @@ input[type="checkbox"] {
   margin-right: 10px;
   transform: rotateY(180deg);
   transition-delay: 3s;
-  -webkit-transform: scaleX(1);transform: scaleX(1);
-}
-
-@keyframes Fly {
-  0% {right: 1000px; -webkit-transform: scaleX(-1); transform: scaleX(-1);}
-  75% {right: 0px; -webkit-transform: scaleX(-1); transform: scaleX(-1);}
-  100% {right: 0px; -webkit-transform: scaleX(1); transform: scaleX(1);}
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 img {
@@ -223,22 +217,13 @@ p {
 
 a {
   text-decoration: none;
-  color: rgb(28, 141, 212);
+  color: rgb(151, 197, 225);
   text-align: center;
 }
 
 #Content {
   margin: 10%;
   margin-top: 0px;
-}
-
-#Search {
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
-  box-shadow: none;
-  border: none;
-  border-bottom: solid #2964db 3px;
 }
 
 #Button {
@@ -262,36 +247,28 @@ a {
   justify-content: space-around;
 }
 
-/* styles for the profile container */
+/* introduction */
 
-.Profile {
+#Description {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
-  height: 20%;
-  width: 20%;
-  border-width: 20px;
-  border-color: black;
+  font-weight: bold;
+  flex: 1;
 }
 
-/* styles for the parofile image */
-
-.Profile img {
-  padding: 5px;
-  object-fit: fill;
-  width: 220px;
-  height: 300px;
-  border-radius: 15px;
-  background-position: center center;
-
-  background-repeat: no-repeat;
+#Description h1 {
+  margin: 2%;
 }
 
-/* introduction */
+#Description p {
+  color: rgb(0, 0, 0);
+  
+}
 
 .background {
-  background-image: linear-gradient(to right, #1c8dd4, #1c8dd4, #3165cd);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://static.wixstatic.com/media/nsplsh_877f6d3959ce4e689fd440c58fe82f9a~mv2.jpg/v1/fill/w_1349,h_736,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/nsplsh_877f6d3959ce4e689fd440c58fe82f9a~mv2.jpg");
   background-blend-mode: darken;
   background-size: cover;
 }
@@ -315,16 +292,22 @@ a {
 }
 
 .firstHalf {
-  width: 75%;
+  width: 100%;
+
   display: flex;
-  flex-direction: column; 
-  justify-content: center
+  flex-direction: column;
+  justify-content: left;
 }
 
-
+.left {
+  animation-name: TextFade;
+  animation-duration: 1.5s;
+}
 
 .text-big {
-  font-weight: bold;
+  font-weight: 900;
+  font-family: sans-serif;
+
   font-size: 41px;
   text-align: center;
 }
@@ -345,5 +328,118 @@ a {
   border-radius: 28px;
 }
 
- 
+
+
+.section-type{
+  min-height: 0vh;
+  display: flex;
+  width: 100%;
+
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+
+  section .container{
+    width: 100%
+}
+.section-type h1{
+  font-size: 3rem;
+  margin: 20px;
+}
+.section-type h2{
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+}
+section .text-container{
+   display: flex;
+}
+section .text-box{
+  margin: 20px;
+  width: 100%;
+  padding: 20px;
+  background: #00c2cb;
+}
+section .text-box h3{
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px){
+  .section-type h1{
+    font-size: 2rem;
+    text-align: center;
+  }
+  .section-type .text-container{
+    flex-direction: column;
+  }
+
+}
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 0.8s all ease;
+}
+
+.reveal-right{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  animation-name: TextFade;
+  transition: 0.8s all ease;
+}
+
+.reveal-right.activer{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.loader{
+  text-align: center;
+}
+
+
+/*  Animation */
+
+@keyframes Fly {
+  0% {
+    right: 1000px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  75% {
+    right: 0px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  100% {
+    right: 0px;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+
+
+@keyframes TextFade {
+  0% {
+    right: 1000px;
+    opacity: 0;
+  }
+  100% {
+    right: 0px;
+    opacity: 1;
+  }
+}
 

@@ -65,8 +65,8 @@
     overflow: hidden;
     background-color: rgb(51, 152, 234);
     border: 3px solid rgb(255, 213, 0);
-
-    border-radius: 20px;
+   
+    border-radius: 10px;
     margin: 10px;
     min-width: 250px;
     max-width: 310px;
@@ -74,7 +74,7 @@
     color: #ffcc00;
     text-align: center;
     font-size: 16px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 15px rgba(2, 2, 2, 0.274);
   }
   
   .card * {
@@ -89,15 +89,17 @@
   }
   
   .card .profile-image img {
-    border: 3px solid rgb(255, 213, 0);
-    background-color: white;
-    padding: 15px;
-    
+    background-color: #ffbb00;
+    box-shadow: 0 5px 15px rgba(2, 2, 2, 0.4);
     max-width: 100%;
     vertical-align: top;
     position: relative;
     border-radius: 50%;
-    max-width: 40%;
+    max-width: 65%;
+  }
+
+  .card .profile-image .border-set {
+    border: solid 6px #ffbb00;
   }
   
   .card figcaption {
@@ -138,4 +140,12 @@
   .card .icons a {
     text-decoration: none;
     color: rgb(255, 198, 101);
+  }
+
+
+  @media (max-width: 900px){
+
+    .card {
+      position: relative;
+    }
   }
