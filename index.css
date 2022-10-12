@@ -4,7 +4,7 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald);
 
 body {
-  font-family: poppins-semibold, poppins, sans-serif;
+  font-family: montserrat;
   margin: 0px;
   background-color: #d0edff;
   scroll-behavior: smooth;
@@ -12,8 +12,36 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow: scroll;
+overflow-x: hidden;
+overflow-y: overlay;
 }
 
+
+body::-webkit-scrollbar {
+  width: 1em;
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background: #009bfb94;
+  border: solid #ffc4008f 3px;
+  transition: 200ms;
+  height:30px;
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-track-piece
+{
+   display:none;
+}
+
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 a {
   text-decoration: none;
 }
@@ -43,27 +71,53 @@ nav {
   z-index: 1;
   width: 100%;
 }
-.navbar {
-  margin-bottom: 80px;
+
+
+
+
+.logo span {
+  color: #fff;
+  padding: 0px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  display: inline-block;
+  font-weight: 500;
+  animation: wavy-text 1000ms ease-in-out 2;
+  animation-delay: calc(50ms * var(--i));
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+
+.text {
+  color: #fff;
+} 
+
+#navbar {
   display: flex;
-  background-image: linear-gradient(to right, #1c8dd4, #1c8dd4, #3165cd);
+  transition: top 1s;
+  -webkit-transition: background-color 2000ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color  200ms linear;
   align-items: center;
   justify-content: space-between;
+  
   padding: 20px;
-  background-color: #1c8dd4;
+  background-color: transparent;
   color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   height: 80px;
 
-  border-bottom: solid #2964db 4px;
+  border-bottom: solid #ffc400 0px;
 }
 
 .nav-links a {
   color: #fff;
 }
 .logo {
+  position: relative;
   display: flex;
   font-size: 27px;
+  animation: Fly 2.5s ease-in-out;
+  animation-delay: 100ms;
   align-items: center;
 }
 .menu {
@@ -128,10 +182,10 @@ nav {
 
 .Section {
   padding: 10px;
-  background-color: rgb(51, 152, 234);
+  background-image: linear-gradient(to right, #1c8dd4, #1c8dd4, #3165cd);
   color: rgb(255, 255, 255);
   font-size: 28px;
-  border-bottom: solid #2964db 4px;
+  border-bottom: solid #eab001 3px;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 30px;
@@ -157,10 +211,10 @@ input[type="checkbox"] {
     text-align: center;
     margin-top: 10px;
     padding: 16px 0;
-    border-bottom: solid #2964db 4px;
+    border-bottom: solid #ffc400c9 4px;
   }
   .dropdown {
-    background-color: #1c8dd4;
+    background-image: linear-gradient(to right, #1c8dd4, #1c8dd4, #3165cd);
     padding: 1em 0;
     position: absolute;
     display: none;
@@ -197,7 +251,6 @@ input[type="checkbox"] {
 
 #Blimp {
   position: relative;
-  animation-name: Fly;
   animation-duration: 2s;
   margin-right: 10px;
   transform: rotateY(180deg);
@@ -206,9 +259,6 @@ input[type="checkbox"] {
   transform: scaleX(1);
 }
 
-img {
-  border-radius: 20px;
-}
 
 p {
   color: rgb(255, 255, 255);
@@ -237,15 +287,6 @@ a {
   border-bottom: solid #2964db 3px;
 }
 
-/* styles for the add profile button on the navbar */
-
-/* styles for the profile container container?? (Yoga made this I don't even know anymore) */
-
-#Profiles {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
 
 /* introduction */
 
@@ -254,7 +295,7 @@ a {
   flex-direction: column;
   justify-content: center;
   font-weight: bold;
-  flex: 1;
+  flex-basis: 40%;
 }
 
 #Description h1 {
@@ -263,7 +304,6 @@ a {
 
 #Description p {
   color: rgb(0, 0, 0);
-  
 }
 
 .background {
@@ -301,7 +341,7 @@ a {
 
 .left {
   animation-name: TextFade;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
 }
 
 .text-big {
@@ -414,31 +454,33 @@ section .text-box h3{
 
 @keyframes Fly {
   0% {
-    right: 1000px;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
+    left: 250px;
   }
-  75% {
-    right: 0px;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-  }
+
   100% {
-    right: 0px;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
+    left: 0px;
   }
 }
 
 
+@keyframes wavy-text {
+  0% {
+    transform: translateY(0px);
+  }
+    50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 
 @keyframes TextFade {
   0% {
-    right: 1000px;
     opacity: 0;
   }
   100% {
-    right: 0px;
     opacity: 1;
   }
 }

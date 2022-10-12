@@ -63,14 +63,16 @@
     position: relative;
     display: inline-block;
     overflow: hidden;
-    background-color: rgb(51, 152, 234);
+    background-image: linear-gradient( #1c8dd4, #1c8dd4, #336fe7);
     border: 3px solid rgb(255, 213, 0);
-   
+   align-self: center;
     border-radius: 10px;
     margin: 10px;
     min-width: 250px;
     max-width: 310px;
     width: 100%;
+    height: 500px;
+    max-height: 500px;
     color: #ffcc00;
     text-align: center;
     font-size: 16px;
@@ -95,10 +97,10 @@
     vertical-align: top;
     position: relative;
     border-radius: 50%;
-    max-width: 65%;
+    max-width: 80%;
   }
 
-  .card .profile-image .border-set {
+ .border-set {
     border: solid 6px #ffbb00;
   }
   
