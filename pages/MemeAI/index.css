@@ -1,0 +1,21 @@
+.Meme {
+    background: rgb(250, 250, 250);
+    width: 25%;
+}
+
+.MemeText {
+    text-align: center;
+    font-weight: bold;
+}
+
+#Button {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    color: #1c8dd4;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    border-bottom: solid #2964db 3px;
+  }
+  
