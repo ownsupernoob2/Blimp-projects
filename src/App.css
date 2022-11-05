@@ -293,9 +293,10 @@ a {
 #Description {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   font-weight: bold;
-  flex-basis: 40%;
+  width: 40%;
+  margin-top: 50px;
 }
 
 #Description h1 {

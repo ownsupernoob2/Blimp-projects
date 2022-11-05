@@ -76,7 +76,7 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-      <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div id="Description">
           <h1 style={{ marginBottom: 5 }}>What am I looking at?</h1>
           <div style={{ borderTop: "5px solid black", width: 75 }} />
@@ -102,7 +102,13 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="container">
+      <motion.div   
+            animate={{
+              y: "0",
+              color: "red",
+              opacity: 1,
+              transition: { duration: 2,  ease: "easeInOut", type: "spring"  },
+            }} className="container">
         <div className="text-box  reveal">
           <h2>STUDENTS WHO LOVE TO LEARN</h2>
           <p>
@@ -110,7 +116,7 @@ const Home = () => {
             eius molestiae perferendis eos provident vitae iste.
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="container">
         <div className="text-box  reveal">
           <h3>STUDENTS WHO LOVE TO LEARN</h3>
