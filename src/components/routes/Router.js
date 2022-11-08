@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 import Home from "../../screens/Home";
 import Auth from "../../screens/auth/Auth";
-import Register from "../../screens/auth/Register";
+import Dashboard from "../../screens/Dashboard";
 import UserRoute from "./UserRoute";
 import { auth } from "../../config/fbConfig";
 import { setuser } from "../../store/actions/user";
@@ -29,8 +29,8 @@ function Router() {
     <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/auth" component={Auth} />
-          <Route path="/register" component={Register} />
+          <Route path="/login" component={Auth} />
+          <UserRoute path="/dashboard" component={Dashboard} />
         </Switch>
     </BrowserRouter>
   );
