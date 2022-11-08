@@ -263,6 +263,7 @@ input[type="checkbox"] {
 p {
   color: rgb(255, 255, 255);
   text-align: center;
+  font-size: 15px;
 }
 
 a {
@@ -354,7 +355,7 @@ a {
 }
 
 .text-small {
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -381,7 +382,7 @@ a {
   align-items: center;
 }
 
-
+/* ugh this is broken */
   section .container{
     width: 100%
 }

@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Mina from "../assets/Mina.png";
+import Rachel from "../assets/Rachel.jpg";
+import Oliver from "../assets/Oliver.jpg";
+
 
 const Profile = () => {
   return (
@@ -28,12 +32,13 @@ const Profile = () => {
           <figcaption>
             <h3>Nadia Putri</h3>
             <h5>CEO &amp; CMO</h5>
+            <br />
             <p style={{ color: "rgb(255, 255, 255)" }}>
               Hey, I'm Nadia, a philomath with a keen love for fictional
               characters and spicy food! I enjoy visual design, literary writing
-              and speech &amp; debate. At Blimp Academy, I'm in charge of
-              overseeing all processes and making sure we achieve our yearly
-              goals
+              and speech &amp; debate. I'm in charge of
+              overseeing all processes and making sure Blimp Academy achieves our yearly
+              goals.
             </p>
             <br />
             <div className="icons">
@@ -61,13 +66,11 @@ const Profile = () => {
           <figcaption>
             <h3>Jonathan Lai</h3>
             <h5>Chief Program Officer</h5>
+            <br />
             <p style={{ color: "rgb(255, 255, 255)" }}>
-              I'm a technically-minded programmer whose current tools include
-              Scratch, Python3, and a little bit of HTML. I lead and participate
-              in the curriculum creation for Blimp Academy, and I enjoy playing
-              chess and participating in good-natured arguments about various
-              subjects.
+            Hi there, I'm Jonathan, an eccentric elder brother with a penchant for chess, coding, and looking really bad in photos (see above reference). I'm in charge of BA's Programs, including the Foundational Track!
             </p>
+            <br />
             <div className="icons">
               <a href="#">Contact me here!</a>
             </div>
@@ -159,6 +162,7 @@ const Profile = () => {
           <figcaption>
             <h3>Amadeo Jova</h3>
             <h5>People Care Officer</h5>
+            <br />
             <p style={{ color: "rgb(255, 255, 255)" }}>
               Hello! I’m Jova and I like Programming and reading, I like to
               listen to music while doing my work and when I read. I am an
@@ -449,7 +453,7 @@ const Profile = () => {
             <h5>Intern</h5>
             <br />
             <p style={{ color: "rgb(255, 255, 255)" }}>
-              <font size={-1}>[lorem ipsum]</font>
+              <font size={-1}>Hello! My name is Maryam Fuad. My skillset includes management and SEO. In my free time I like creating episodes for my podcast every Friday. I like spending time with my family and capturing pictures.</font>
               <br />
               <br />
             </p>
@@ -471,7 +475,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://images.macrumors.com/t/n4CqVR2eujJL-GkUPhv1oao_PmI=/1600x/article-new/2019/04/guest-user-250x250.jpg"
+              src={Mina}
               width="200px"
               alt="profile-sample2"
             />
@@ -508,7 +512,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://images.macrumors.com/t/n4CqVR2eujJL-GkUPhv1oao_PmI=/1600x/article-new/2019/04/guest-user-250x250.jpg"
+              src={Rachel}
               width="200px"
               alt="profile-sample2"
             />
@@ -518,7 +522,7 @@ const Profile = () => {
             <h5>Intern</h5>
             <br />
             <p style={{ color: "rgb(255, 255, 255)" }}>
-              <font size={-1}>[lorem ipsum]</font>
+              <font size={-2}>Hey guys, nice to meet you! I'm Rachel, an artistic older sibling who's a big fan of music, volleyball, karaoke, and a variety of other hobbies. I'm part of the Finance Team, but I am open and flexible to anything and everything!</font>
               <br />
               <br />
             </p>
@@ -576,7 +580,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://images.macrumors.com/t/n4CqVR2eujJL-GkUPhv1oao_PmI=/1600x/article-new/2019/04/guest-user-250x250.jpg"
+              src={Oliver}
               width="200px"
               alt="profile-sample2"
             />
@@ -587,8 +591,7 @@ const Profile = () => {
             <br />
             <p style={{ color: "rgb(255, 255, 255)" }}>
               <font size={-1}>
-                ello! My name is Oliver and I joined Blimp Academy at the end of
-                2022. I am privileged to be a part of the Academy - I have
+                Hello! My name is Oliver. I am privileged to be a part of Blimp - I have
                 learnt useful skills and made new friends. I cannot wait to grow
                 with the Blimp community as a Blimpy!
               </font>
