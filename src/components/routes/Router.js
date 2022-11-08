@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Home from "../../screens/Home";
-import Login from "../../screens/auth/Login";
+import Auth from "../../screens/auth/Auth";
 import Register from "../../screens/auth/Register";
 import UserRoute from "./UserRoute";
 import { auth } from "../../config/fbConfig";
@@ -29,7 +29,7 @@ function Router() {
     <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
+          <Route path="/auth" component={Auth} />
           <Route path="/register" component={Register} />
         </Switch>
     </BrowserRouter>
