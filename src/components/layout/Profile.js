@@ -591,8 +591,7 @@ const Profile = () => {
             <br />
             <p style={{ color: "rgb(255, 255, 255)" }}>
               <font size={-1}>
-                Hello! My name is Oliver and I joined Blimp Academy at the end of
-                2022. I am privileged to be a part of the Academy - I have
+                Hello! My name is Oliver. I am privileged to be a part of Blimp - I have
                 learnt useful skills and made new friends. I cannot wait to grow
                 with the Blimp community as a Blimpy!
               </font>

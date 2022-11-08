@@ -355,7 +355,7 @@ a {
 }
 
 .text-small {
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -382,7 +382,7 @@ a {
   align-items: center;
 }
 
-
+/* ugh this is broken */
   section .container{
     width: 100%
 }

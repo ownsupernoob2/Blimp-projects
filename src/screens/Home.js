@@ -52,6 +52,7 @@ const Home = () => {
             className="firstHalf"
           >
             <p className="text-big left">
+              <br></br>
               Welcome to the Blimp Academy Profile Site
             </p>
             <br />
@@ -67,7 +68,7 @@ const Home = () => {
                 href="#Order"
                 style={{ textDecoration: "none", color: "white" }}
               >
-                Confused about what Blimp Academy is? Check out our
+                Want to know more about what Blimp Academy is? Check out our
               </a>
               <a href="https://www.blimpacademy.com/"> website</a> for
               information about how our company works, as well as a way to
@@ -82,8 +83,7 @@ const Home = () => {
           <div style={{ borderTop: "5px solid black", width: 75 }} />
           <br />
           <p>
-            A blender of work from Mina, Jonathan and Yoga (And the designers,
-            kinda, sure why not: Eian and Joshua). The Programming team
+            <font size="+2">A functional multipurposed Blimp website created by Mina, Jonathan, and Yoga, as well as design-assisted by Eian and Joshua - <font color="blue">The Programming Team!</font></font>
           </p>
         </div>
       </div>
@@ -91,7 +91,10 @@ const Home = () => {
   <h1 className="Section reveal" style={{ marginTop: 50 }}>
     About Us
   </h1>
-  <div className="grid-container">
+  <div className="container" style={{justifyContent: "center"}}>
+  Founded in 2019, Blimp Academy is a company that functions as both a learning community and a professional workspace where kids (also known as "Blimpies") learn about relevant and practical skills such as leadership, programming, marketing, writing, budgeting, in a structured fashion then apply those skills in paid company projects. Blimpies receive opportunities to learn and gain real-life work experience in a safe and fun space, acting as both employees and students.   
+  </div>
+  <div className="grid-container" style={{justifyContent: "center", width: "100%" }}>
     <section className="section-type">
       <div className="container">
         <div className="text-box  reveal">
@@ -102,10 +105,9 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <motion.div   
+      <motion.div
             animate={{
               y: "0",
-              color: "red",
               opacity: 1,
               transition: { duration: 2,  ease: "easeInOut", type: "spring"  },
             }} className="container">
@@ -117,17 +119,9 @@ const Home = () => {
           </p>
         </div>
       </motion.div>
-      <div className="container">
-        <div className="text-box  reveal">
-          <h3>STUDENTS WHO LOVE TO LEARN</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            eius molestiae perferendis eos provident vitae iste.
-          </p>
-        </div>
-      </div>
     </section>
   </div>
+  
 </section>
 
     <Profile />
