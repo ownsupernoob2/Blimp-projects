@@ -1,17 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 
-import Profile from "../components/layout/Profile"
-import Meme from "../components/layout/Meme"
-import Navbar from "../components/layout/Navbar"
+import Profile from "../components/layout/Profile";
+import Meme from "../components/layout/Meme";
+import Navbar from "../components/layout/Navbar";
 import logo from "../components/assets/logo.png";
-
 
 const Home = () => {
   const navbar = useRef(null);
   const { scrollY } = useScroll();
-
-
 
   const handleScroll = () => {
     if (scrollY.current > 30) {
@@ -31,9 +28,6 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-
-
 
   return (
     <div onScroll={handleScroll}>
@@ -77,55 +71,95 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+      <div style={{ display: "flex",   backgroundColor: '#1c8dd4', justifyContent: "center", width: "100%" }}>
         <div id="Description">
-          <h1 style={{ marginBottom: 5 }}>What am I looking at?</h1>
-          <div style={{ borderTop: "5px solid black", width: 75 }} />
+          <h1 style={{ marginBottom: 5, color: "#333" }}>
+            WHAT AM I LOOKING AT?
+          </h1>
+          <div
+            style={{ borderTop: "3px solid #333", width: 65, marginTop: 10 }}
+          />
           <br />
           <p>
-            <font size="+2">A functional multipurposed Blimp website created by Mina, Jonathan, and Yoga, as well as design-assisted by Eian and Joshua - <font color="blue">The Programming Team!</font></font>
+            <font size="+1" style={{ fontWeight: 100, color: "#333" }}>
+              A functional multipurposed Blimp website created by Mina,
+              Jonathan, and Yoga, as well as design-assisted by Eian and Joshua
+              - <font color="blue">The Programming Team!</font>
+            </font>
           </p>
         </div>
       </div>
       <section id="about" className="service">
-  <h1 className="Section reveal" style={{ marginTop: 50 }}>
-    About Us
-  </h1>
-  <div className="container" style={{justifyContent: "center"}}>
-  Founded in 2019, Blimp Academy is a company that functions as both a learning community and a professional workspace where kids (also known as "Blimpies") learn about relevant and practical skills such as leadership, programming, marketing, writing, budgeting, in a structured fashion then apply those skills in paid company projects. Blimpies receive opportunities to learn and gain real-life work experience in a safe and fun space, acting as both employees and students.   
-  </div>
-  <div className="grid-container" style={{justifyContent: "center", width: "100%" }}>
-    <section className="section-type">
-      <div className="container">
-        <div className="text-box  reveal">
-          <h3>STUDENTS WHO LOVE TO LEARN</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            eius molestiae perferendis eos provident vitae iste.
-          </p>
+      <div style={{backgroundColor: '#1c8dd4'}}>
+        <div
+          className="grid-container"
+          style={{
+            justifyContent: "center",
+            width: "100%",
+          }}
+        >
+          <section className="section-type">
+            <motion.div
+              initial={{ opacity: 0, x: "-60vh" }}
+              viewport={{ once: true }}
+              whileInView={{
+                x: "0",
+                opacity: 1,
+                transition: { duration: 2.3, delay: 0, ease: "easeInOut" },
+              }}
+              className="container"
+            >
+              <div className="text-box">
+                <h3 style={{ color: "white" }}>STUDENTS WHO LOVE TO LEARN</h3>
+                <p styles={{ color: "#eee" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tempore eius molestiae perferendis eos provident vitae iste.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "60vh" }}
+              viewport={{ once: true }}
+              whileInView={{
+                x: "0",
+                opacity: 1,
+                transition: { duration: 2.3, delay: 0, ease: "easeInOut" },
+              }}
+              className="container"
+            >
+              <div className="text-box">
+                <h3 style={{ color: "white" }}>STUDENTS WHO LOVE TO LEARN</h3>
+                <p styles={{ color: "#eee" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tempore eius molestiae perferendis eos provident vitae iste.
+                </p>
+              </div>
+            </motion.div>
+          </section>
         </div>
-      </div>
-      <motion.div
-            animate={{
-              y: "0",
-              opacity: 1,
-              transition: { duration: 2,  ease: "easeInOut", type: "spring"  },
-            }} className="container">
-        <div className="text-box  reveal">
-          <h2>STUDENTS WHO LOVE TO LEARN</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            eius molestiae perferendis eos provident vitae iste.
-          </p>
+        <motion.div
+          initial={{ opacity: 0, y: "-40vh" }}
+          viewport={{ once: true }}
+          whileInView={{
+            y: "0",
+            opacity: 1,
+            transition: { duration: 2.3, delay: 0, ease: "easeInOut" },
+          }}
+          className="container"
+        >
+          <div className="text-box">
+            <h3 style={{ color: "white" }}>STUDENTS WHO LOVE TO LEARN</h3>
+            <p styles={{ color: "#eee" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+              eius molestiae perferendis eos provident vitae iste.
+            </p>
+          </div>
+        </motion.div>
         </div>
-      </motion.div>
-    </section>
-  </div>
-  
-</section>
+      </section>
 
-    <Profile />
-    <Meme />
+      <Profile />
+      <Meme />
     </div>
   );
 };

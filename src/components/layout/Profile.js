@@ -8,7 +8,7 @@ import Oliver from "../assets/Oliver.jpg";
 const Profile = () => {
   return (
     <section id="about" className="service">
-      <h1 className={`Section`} style={{ marginTop: 50 }}>
+      <h1 className={`Section`} >
         Our Blimpies!
       </h1>
       <div className="grid-container">
