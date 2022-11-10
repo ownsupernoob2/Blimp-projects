@@ -9,7 +9,7 @@ const AnyRoute = ({ children, ...rest }) => {
     let history = useHistory();
     const  { user }  =  useSelector((state) => ({ ...state.user }));
     
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState()
 
     useEffect(() => {
         setIsLoading(true);
@@ -20,7 +20,7 @@ const AnyRoute = ({ children, ...rest }) => {
       return () => clearInterval(interval);
     }, [ history]);
     
-  return user ? <Route {...rest} /> : <LoadingToRedirect /> ;
+  return !user ? <Route {...rest} /> : <LoadingToRedirect /> ;
 };
 
 export default AnyRoute;

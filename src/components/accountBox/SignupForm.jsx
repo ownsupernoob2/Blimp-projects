@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { registerInitiate } from "../../store/actions/user";
-import { Link, useHistory } from "react-router-dom";
 import {
   BoldLink,
   BoxContainer,
@@ -25,13 +24,7 @@ const SignupForm = (props) => {
     passwordConfirm: "",
   });
 
-  const history = useHistory();
 
-  useEffect(() => {
-    if (user) {
-      history.push("/");
-    }
-  }, [user, history]);
 
   const { displayName, email, password, passwordConfirm } = state;
 

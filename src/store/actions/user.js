@@ -1,15 +1,6 @@
 import * as types from "./actionTypes";
 import { auth, googleAuthProvider } from "../../config/fbConfig";
 
-export const addToBasket = (item) => ({
-  type: types.ADD_TO_BASKET,
-  payload: item,
-});
-
-export const removeFromBasket = (id) => ({
-  type: types.REMOVE_FROM_BASKET,
-  payload: id,
-});
 
 const registerStart = () => ({
   type: types.REGISTER_START,
