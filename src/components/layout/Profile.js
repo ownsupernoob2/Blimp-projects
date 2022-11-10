@@ -1,9 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import Mina from "../assets/Mina.png";
-import Rachel from "../assets/Rachel.jpg";
-import Oliver from "../assets/Oliver.jpg";
-
 
 const Profile = () => {
   return (
@@ -443,7 +439,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://images.macrumors.com/t/n4CqVR2eujJL-GkUPhv1oao_PmI=/1600x/article-new/2019/04/guest-user-250x250.jpg"
+              src="https://lh5.googleusercontent.com/rezEOWiCsKjK66I3iExrRgLvOJERmUxpZlkWPsFTnxiPtq6lMdhJ82VNneqvwKSKMRc=w2400"
               width="200px"
               alt="profile-sample2"
             />
@@ -475,7 +471,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src={Mina}
+              src="https://lh3.googleusercontent.com/Kf38rn5SHLYg00NkxZDVNoBdsEJQ4M2IhhaWbz04WM6ugA2_dj-0CPDBKD_zM_TIzTA=w2400"
               width="200px"
               alt="profile-sample2"
             />
@@ -512,7 +508,8 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src={Rachel}
+              className="border-set"
+              src="https://lh6.googleusercontent.com/yafGS1HHtc52FiE5xDjxMPWWTbQXoepGrjlCllLwiPNcbfRmReRDh7oIq6iyNqPNy88=w2400"
               width="200px"
               alt="profile-sample2"
             />
@@ -580,7 +577,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src={Oliver}
+              src="https://lh6.googleusercontent.com/gWzyakYBih_Ra89-TBgkG3Gw1bbHmcGuytR0zhrJubAzIIPZcVCQ7-0lZXOPZ2mF_ek=w2400"
               width="200px"
               alt="profile-sample2"
             />
