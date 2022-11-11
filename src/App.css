@@ -294,7 +294,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 450px 70px 450px;
+  padding: 5% 15% /* Absolutely gigantic 50px 450px 70px 450px */;
   background: white;
   font-weight: bold;
   width: 100%;
