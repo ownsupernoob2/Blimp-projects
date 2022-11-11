@@ -51,7 +51,7 @@ const SignupForm = (props) => {
             type="text"
             id="user-name"
             className="form-control"
-            placeholder="Full name"
+            placeholder="Name"
             name="displayName"
             value={displayName}
             onChange={handleChange}
@@ -81,20 +81,20 @@ const SignupForm = (props) => {
             type="password"
             id="user-repeatpass"
             className="form-control"
-            placeholder="Repeat Password"
+            placeholder="Confirm Your Password"
             name="passwordConfirm"
             value={passwordConfirm}
             onChange={handleChange}
             required
           />
-      <SubmitButton type="submit">Signup</SubmitButton>
+      <SubmitButton type="submit">Sign Up</SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Already have an account?
         <BoldLink href="#" onClick={switchToSignin}>
-          Signin
+          Sign In
         </BoldLink>
       </MutedLink>
     </BoxContainer>

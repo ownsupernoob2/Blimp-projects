@@ -33,7 +33,6 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
 
-
   const handleChange = (e) => {
     let { name, value } = e.target;
     setState({ ...state, [name]: value });
@@ -72,7 +71,7 @@ const LoginForm = () => {
             onChange={handleChange}
             required
           />
-      <SubmitButton type="submit">Signin</SubmitButton>
+      <SubmitButton type="submit">Sign In</SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
@@ -90,7 +89,7 @@ const LoginForm = () => {
       <MutedLink href="#">
         Don't have an account?{" "}
         <BoldLink href="#" onClick={switchToSignup}>
-          Signup
+          Sign Up
         </BoldLink>
       </MutedLink>
 

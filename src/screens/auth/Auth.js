@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { AccountBox } from "../../components/accountBox";
 import Icon from "../../components/assets/BA.png";
+import Weirdicon from "../../components/assets/TextSideLogo2.png";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -42,7 +43,11 @@ function Auth() {
   return (
     <AppContainer>
         <NavbarContainer>
-          <div>Logo</div>
+          <img
+              src={Weirdicon}
+              width="200px"
+              alt="weirdlogo"
+            />
           <div>Go back</div>
         </NavbarContainer>
         <Content>
