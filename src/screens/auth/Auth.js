@@ -1,7 +1,10 @@
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 import { AccountBox } from "../../components/accountBox";
 import Icon from "../../components/assets/BA.png";
+import Weirdicon from "../../components/assets/TextSideLogo2.png";
+
 
 const AppContainer = styled.div`
   width: 100%;
@@ -21,38 +24,46 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   padding: 0px 50px 0px 50px;
   align-items: center;
- background-color: white;
+  background-color: white;
   margin: 0px 0px 40px 0px;
 `;
 
 const Content = styled.div`
-display: flex;
+  display: flex;
   flex: 1;
   width: 100%;
   align-itmes: center;
   justify-content: space-around;
   height: 100%;
-  `;
+`;
 
-const Logo = styled.div`
-
+const GoBack = styled.p`
+  color: #2894d7;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
 `;
 
 function Auth() {
+  let history = useHistory();
+
+  const goBack = () => {
+    history.goBack();
+  };
   return (
     <AppContainer>
-        <NavbarContainer>
-          <div>Logo</div>
-          <div>Go back</div>
-        </NavbarContainer>
-        <Content>
+      <NavbarContainer>
+        <div>Logo</div>
         <img
-              src={Icon}
-              width="470px"
-              height="470px"
-              alt="profile-sample2"
+              src={Weirdicon}
+              width="200px"
+              alt="weirdlogo"
             />
-      <AccountBox />
+        <GoBack onClick={goBack}>Go back</GoBack>
+      </NavbarContainer>
+      <Content>
+        <img src={Icon} width="470px" height="470px" alt="Blimp-logo" />
+        <AccountBox />
       </Content>
     </AppContainer>
   );

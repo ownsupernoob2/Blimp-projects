@@ -471,7 +471,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://lh3.googleusercontent.com/Kf38rn5SHLYg00NkxZDVNoBdsEJQ4M2IhhaWbz04WM6ugA2_dj-0CPDBKD_zM_TIzTA=w2400"
+              src="https://firebasestorage.googleapis.com/v0/b/blimp-academy-website.appspot.com/o/profile-img%2FMinaCropped(1)%20(1).png?alt=media&token=c5b14f0a-3101-459c-91c6-30376e663b84"
               width="200px"
               alt="profile-sample2"
             />

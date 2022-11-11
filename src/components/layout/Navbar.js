@@ -1,5 +1,6 @@
 import React, { useEffect} from "react";
 import { motion, useScroll } from "framer-motion";
+import {Link} from "react-router-dom"
 
 import Profile from "./Profile"
 import Meme from "./Meme"
@@ -98,7 +99,7 @@ const Navbar = () => {
               <a href="#about">About</a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <Link href="/login">Login</Link>
             </li>
           </div>
         </ul>

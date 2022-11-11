@@ -45,7 +45,8 @@ const LoginForm = () => {
     setState({ email: "", password: "" });
   };
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = (e) => {
+    e.preventDefault();
     dispatch(googleSignInInitiate());
   };
 
@@ -72,19 +73,20 @@ const LoginForm = () => {
             onChange={handleChange}
             required
           />
-      <SubmitButton type="submit">Signin</SubmitButton>
+      <SubmitButton type="submit">Login</SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
-      <button
-              className="btn google-btn social-btn"
-              type="button"
-              onClick={handleGoogleSignIn}
-            >
-              <span>
-                <i className="fab fa-google-plus-g"></i> Sign in with Google
-              </span>
-            </button>
+      <div onClick={handleGoogleSignIn} class='g-sign-in-button'>
+    <div class='content-wrapper'>
+        <div class='logo-wrapper'>
+            <img src='https://developers.google.com/identity/images/g-logo.png' />
+        </div>
+        <span class='text-container'>
+      <span>Sign in with Google</span>
+    </span>
+    </div>
+</div>
       <Marginer direction="vertical" margin="1.6em" />
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
