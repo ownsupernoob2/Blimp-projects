@@ -439,7 +439,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://lh5.googleusercontent.com/rezEOWiCsKjK66I3iExrRgLvOJERmUxpZlkWPsFTnxiPtq6lMdhJ82VNneqvwKSKMRc=w2400"
+              src="https://firebasestorage.googleapis.com/v0/b/blimp-academy-website.appspot.com/o/profile-img%2FMaryamCropped(1)(2).jpg?alt=media&token=cc1cc987-c284-4791-9db4-68b8009a9660"
               width="200px"
               alt="profile-sample2"
             />
@@ -471,7 +471,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://lh3.googleusercontent.com/Kf38rn5SHLYg00NkxZDVNoBdsEJQ4M2IhhaWbz04WM6ugA2_dj-0CPDBKD_zM_TIzTA=w2400"
+              src="https://firebasestorage.googleapis.com/v0/b/blimp-academy-website.appspot.com/o/profile-img%2FMinaCropped(1)%20(1).png?alt=media&token=c5b14f0a-3101-459c-91c6-30376e663b84"
               width="200px"
               alt="profile-sample2"
             />
@@ -509,7 +509,7 @@ const Profile = () => {
           <div className="profile-image">
             <img
               className="border-set"
-              src="https://lh6.googleusercontent.com/yafGS1HHtc52FiE5xDjxMPWWTbQXoepGrjlCllLwiPNcbfRmReRDh7oIq6iyNqPNy88=w2400"
+              src="https://firebasestorage.googleapis.com/v0/b/blimp-academy-website.appspot.com/o/profile-img%2FRachel%20(1).png?alt=media&token=f8f72d80-e6a9-4001-803f-eff646f95c3c"
               width="200px"
               alt="profile-sample2"
             />
@@ -577,7 +577,7 @@ const Profile = () => {
           {" "}
           <div className="profile-image">
             <img
-              src="https://lh6.googleusercontent.com/gWzyakYBih_Ra89-TBgkG3Gw1bbHmcGuytR0zhrJubAzIIPZcVCQ7-0lZXOPZ2mF_ek=w2400"
+              src="https://firebasestorage.googleapis.com/v0/b/blimp-academy-website.appspot.com/o/profile-img%2FOliverCropped(1)%20(1).png?alt=media&token=04328458-f196-45f5-a6c7-4abbe5b23520"
               width="200px"
               alt="profile-sample2"
             />
