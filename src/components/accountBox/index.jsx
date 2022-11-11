@@ -10,6 +10,7 @@ const BoxContainer = styled.div`
   min-height: 550px;
   display: flex;
   flex-direction: column;
+  z-index: 3;
   border-radius: 19px;
   background-color: #fff;
   box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
@@ -134,7 +135,7 @@ export function AccountBox(props) {
   const contextValue = { switchToSignup, switchToSignin };
 
   return (
-    <AccountContext.Provider value={contextValue}>
+    <AccountContext.Provider style={{zIndex: 3}} value={contextValue}>
       <BoxContainer>
         <TopContainer>
           <BackDrop

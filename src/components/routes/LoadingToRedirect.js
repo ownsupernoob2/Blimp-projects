@@ -1,22 +1,60 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
+
+
+const ballStyle = {
+  display: "block",
+  width: "1rem",
+  height: "1rem",
+  backgroundColor: "black",
+  borderRadius: "0.5rem"
+};
+
+const bounceTransition = {
+  y: {
+    duration: 0.4,
+    yoyo: Infinity,
+    ease: "easeOut"
+  },
+  backgroundColor: {
+    duration: 0,
+    yoyo: Infinity,
+    ease: "easeOut",
+    repeatDelay: 0.8
+  }
+};
 
 const LoadingToRedirect = () => {
-  const [count, setCount] = useState(5);
   let history = useHistory();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount((currentCount) => --currentCount);
-    }, 1000);
-    // redirect once count is equal to 0
-    count === 0 && history.push("/login");
+      history.goBack();
+     }, 1500);
 
     return () => clearInterval(interval);
-  }, [count, history]);
+  }, [ history]);
   return (
-    <div className="container p-5 text-center">
-      <p>Redirecting you in {count} seconds</p>
+  <div
+      style={{
+        width: "2rem",
+        height: "2rem",
+        display: "flex",
+        flex: 1,
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: "space-around"
+      }}
+    >
+      <motion.span
+        style={ballStyle}
+        transition={bounceTransition}
+        animate={{
+          y: ["100%", "-100%"],
+          backgroundColor: ["#ff6699", "#6666ff"]
+        }}
+      />
     </div>
   );
 };
