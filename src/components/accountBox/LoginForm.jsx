@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext, useState } from "react";
+import { useDispatch,  useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 import {
   googleSignInInitiate,
@@ -20,8 +21,9 @@ import { AccountContext } from "./accountContext";
 const LoginForm = () => {
   
   const { switchToSignup } = useContext(AccountContext);
+  let history = useHistory();
 
-  const { user } = useSelector((state) => ({ ...state.user }));
+  const { error } = useSelector((state) => ({ ...state.error }));
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -39,15 +41,18 @@ const LoginForm = () => {
     setState({ ...state, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
     dispatch(loginInitiate(email, password));
     setState({ email: "", password: "" });
+    console.log(error)
+    history.push("/dashboard")
   };
 
-  const handleGoogleSignIn = (e) => {
+  const handleGoogleSignIn =  (e) => {
     e.preventDefault();
-    dispatch(googleSignInInitiate());
+   dispatch(googleSignInInitiate())
+    console.log(error)
   };
 
   return (
@@ -76,13 +81,12 @@ const LoginForm = () => {
       <SubmitButton type="submit">Login</SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <MutedLink href="#">Forget your password?</MutedLink>
-      <div onClick={handleGoogleSignIn} class='g-sign-in-button'>
-    <div class='content-wrapper'>
-        <div class='logo-wrapper'>
+      <div onClick={handleGoogleSignIn} className='g-sign-in-button'>
+    <div className='content-wrapper'>
+        <div className='logo-wrapper'>
             <img src='https://developers.google.com/identity/images/g-logo.png' />
         </div>
-        <span class='text-container'>
+        <span className='text-container'>
       <span>Sign in with Google</span>
     </span>
     </div>

@@ -48,12 +48,11 @@ function Auth() {
   let history = useHistory();
 
   const goBack = () => {
-    history.goBack();
+    history.push("/");
   };
   return (
     <AppContainer>
       <NavbarContainer>
-        <div>Logo</div>
         <img
               src={Weirdicon}
               width="200px"

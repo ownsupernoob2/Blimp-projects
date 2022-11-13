@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 import { registerInitiate } from "../../store/actions/user";
 import {
@@ -16,13 +17,16 @@ import { AccountContext } from "./accountContext";
 const SignupForm = (props) => {
   const { switchToSignin } = useContext(AccountContext);
 
-  const { user } = useSelector((state) => ({ ...state.user }));
+  const { error } = useSelector((state) => ({ ...state.error }));
   const [state, setState] = useState({
     displayName: "",
     email: "",
     password: "",
     passwordConfirm: "",
   });
+  let history = useHistory();
+
+  const [isCorrect, setIsCorrect] = useState(true)
 
 
 
@@ -32,16 +36,21 @@ const SignupForm = (props) => {
 
   const handleChange = (e) => {
     let { name, value } = e.target;
+    setIsCorrect(true);
     setState({ ...state, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== passwordConfirm) {
+       setIsCorrect(false);
       return;
     }
+    setIsCorrect(true);
     dispatch(registerInitiate(email, password, displayName));
+    history.push("/dashboard")
     setState({ displayName: "", email: "", password: "", passwordConfirm: "" });
+ console.log(error)
   };
 
   return (
@@ -87,6 +96,7 @@ const SignupForm = (props) => {
             onChange={handleChange}
             required
           />
+        { !isCorrect ? <p  style={{color: "red", paddingTop: 20, fontSize: "15px"}}>The password does not match</p> : null }
       <SubmitButton type="submit">Register</SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />

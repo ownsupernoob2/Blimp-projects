@@ -1,9 +1,10 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
-import {Link} from "react-router-dom"
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-import Profile from "./Profile"
-import Meme from "./Meme"
+import Profile from "./Profile";
+import Meme from "./Meme";
 import logo from "../assets/logo.png";
 
 const containerVariants = {
@@ -53,57 +54,107 @@ const childVariants = {
 };
 
 const Navbar = () => {
+  const { user } = useSelector((state) => ({ ...state.user }));
+
+  let linkStyle = {
+    display: "flex",
+    paddingLeft: 20,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  };
+  let imgStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 50,
+    height: 50,
+    backgroundColor: '#0d78bb',
+    borderRadius: 50 / 2,
+    border: "solid 2px #ffc400",
+    marginRight: 15,
+  };
 
   return (
     <>
-        <motion.div
-          className="logo"
-          variants={containerVariants}
-          initial="hidden"
-          animate="animation"
-        >
-          <img
-            src={logo}
-            height="50px"
-            alt="Blimp logo"
-            style={{ marginRight: "10px" }}
-          />
-          <motion.span  variants={childVariants}>B</motion.span>
-          <motion.span variants={childVariants}>L</motion.span>
-          <motion.span variants={childVariants}>I</motion.span>
-          <motion.span variants={childVariants}>M</motion.span>
-          <motion.span variants={childVariants}>P</motion.span>
-          <motion.span variants={childVariants}>‏‏‎ ‎</motion.span>
-          <motion.span variants={childVariants}>A</motion.span>
-          <motion.span variants={childVariants}>C</motion.span>
-          <motion.span variants={childVariants}>A</motion.span>
-          <motion.span variants={childVariants}>D</motion.span>
-          <motion.span variants={childVariants}>E</motion.span>
-          <motion.span variants={childVariants}>M</motion.span>
-          <motion.span variants={childVariants}>Y</motion.span>
-        </motion.div>
+      <motion.div
+        className="logo"
+        variants={containerVariants}
+        initial="hidden"
+        animate="animation"
+      >
+        <img
+          src={logo}
+          height="50x"
+          alt="Blimp logo"
+          style={{ marginRight: "10px" }}
+        />
+        <motion.span variants={childVariants}>B</motion.span>
+        <motion.span variants={childVariants}>L</motion.span>
+        <motion.span variants={childVariants}>I</motion.span>
+        <motion.span variants={childVariants}>M</motion.span>
+        <motion.span variants={childVariants}>P</motion.span>
+        <motion.span variants={childVariants}>‏‏‎ ‎</motion.span>
+        <motion.span variants={childVariants}>A</motion.span>
+        <motion.span variants={childVariants}>C</motion.span>
+        <motion.span variants={childVariants}>A</motion.span>
+        <motion.span variants={childVariants}>D</motion.span>
+        <motion.span variants={childVariants}>E</motion.span>
+        <motion.span variants={childVariants}>M</motion.span>
+        <motion.span variants={childVariants}>Y</motion.span>
+      </motion.div>
 
-        <ul className="nav-links">
-          <input type="checkbox" id="checkbox_toggle" />
-          <label htmlFor="checkbox_toggle" className="hamburger">
-            &#9776;
-          </label>
-          <div className="menu">
-            <li>
-              <a href="#">Home</a>
+      <ul className="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label htmlFor="checkbox_toggle" className="hamburger">
+          &#9776;
+        </label>
+        <div className="menu">
+          <li style={linkStyle}>
+            <a href="#">Home</a>
+          </li>
+          <li style={linkStyle}>
+            <a href="#meme-maker">Projects</a>
+          </li>
+          <li style={linkStyle}>
+            <a href="#about">About</a>
+          </li>
+          {!user ? (
+            <li     style={{
+                display: "flex",
+                paddingLeft: 20,
+                paddingRight: 20,
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+              <Link to="/login">Login</Link>
             </li>
-            <li>
-              <a href="#projects">Projects</a>
+          ) : (
+            <li
+              style={{
+                display: "flex",
+                paddingLeft: 15,
+                paddingRight: 35,
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {user.photoURL ? (
+                <img
+                  alt={user.displayName + " Profile pic"}
+                  style={imgStyle}
+                  src={user.photoURL}
+                />
+              ) : (
+                <div style={imgStyle}>{user.displayName.slice(0, 1)}</div>
+              )}
+              <Link style={{ color: '#fcd423'}} className='focus-text' to="/dashboard">{user.displayName}</Link>
             </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <Link href="/login">Login</Link>
-            </li>
-          </div>
-        </ul>
-
+          )}
+        </div>
+      </ul>
     </>
   );
 };
