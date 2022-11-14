@@ -121,16 +121,6 @@
     line-height: 24px;
     margin: 3px 0;
   }
-
-  .focus-text {
-    font-family: 'Oswald';
-    font-size: 30px;
-    color: #ffbb00;
-    -webkit-text-stroke: 1px #14638e;
-    font-weight: 400;
-    line-height: 14px;
-    margin: 3px 0;
-  }
   
   .card h5 {
     font-weight: 400;
