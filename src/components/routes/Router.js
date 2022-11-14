@@ -10,6 +10,7 @@ import Auth from "../../screens/auth/Auth";
 import Dashboard from "../../screens/Dashboard";
 import AnyRoute from "./AnyRoute";
 import UserRoute from "./UserRoute";
+import RefreshRoute from "./RefreshRoute";
 import { auth } from "../../config/fbConfig";
 import { setuser } from "../../store/actions/user";
 

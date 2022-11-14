@@ -30,7 +30,7 @@ const LoadingToRedirect = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      history.goBack();
+      history.push("/");
      }, 1500);
 
     return () => clearInterval(interval);

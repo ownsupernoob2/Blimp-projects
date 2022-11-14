@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import RefreshRoute from "./RefreshRoute";
 import LoadingToRedirect from "./LoadingToRedirect";
 
 const AnyRoute = ({ children, ...rest }) => {
