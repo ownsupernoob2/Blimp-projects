@@ -123,10 +123,9 @@
   }
 
   .focus-text {
-    font-family: 'Oswald';
-    font-size: 30px;
-    color: #ffbb00;
-    -webkit-text-stroke: 1px #14638e;
+    font-family: 'Helvetica';
+    font-size: 24px;
+    color: #ffffff;
     font-weight: 400;
     line-height: 14px;
     margin: 3px 0;

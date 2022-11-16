@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import {
+  getUsersInitiate,
+} from "../../store/actions/profile";
 import Profile from "./Profile";
 import Meme from "./Meme";
 import logo from "../assets/logo.png";
@@ -54,7 +57,46 @@ const childVariants = {
 };
 
 const Navbar = () => {
-  const { user } = useSelector((state) => ({ ...state.user }));
+
+  const  auth =  useSelector((state) => ({ ...state.user }));
+  const [isLoading, setIsLoading] = useState(true)
+  const [userData, setUserData] = useState(null)
+
+  //Because our reducer use with key data
+
+
+  const dispatch = useDispatch();
+
+   
+  useEffect(() => {
+    const handleDelay = async () => {
+      setIsLoading(true)
+      await dispatch(getUsersInitiate());
+      useSelector((state) => state.data);
+      console.log("loaded")
+    };
+
+    handleDelay();
+  }, []);
+
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsLoading(false)
+      console.log('timer finished')
+     }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+    const asArray = Object.entries(justStrings);
+  
+  const filtered = asArray.filter(([key, value]) => value.ownerId === auth.user.uid)
+  
+  const usersFunction = Object.fromEntries(filtered);
+  
+  const users = Object.values(usersFunction)
+
 
   let linkStyle = {
     display: "flex",
@@ -72,7 +114,7 @@ const Navbar = () => {
     backgroundColor: '#0d78bb',
     borderRadius: 50 / 2,
     border: "solid 2px #ffc400",
-    marginRight: 15,
+    marginLeft: 15,
   };
 
   return (
@@ -119,7 +161,21 @@ const Navbar = () => {
           <li style={linkStyle}>
             <a href="#about">About</a>
           </li>
-          {!user ? (
+          
+          {  isLoading ?              <li
+              style={{
+                display: "flex",
+                paddingLeft: 15,
+                paddingRight: 35,
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Link className='focus-text' to="/dashboard">Loading...</Link>
+           </li>
+           :
+            !auth.user && !justStrings ? (
             <li     style={{
                 display: "flex",
                 paddingLeft: 20,
@@ -141,16 +197,16 @@ const Navbar = () => {
                 justifyContent: "center",
               }}
             >
-              {user.photoURL ? (
+              <Link className='focus-text' to="/dashboard">{users[0].name}</Link>
+              {users[0].profilePic ? (
                 <img
-                  alt={user.displayName + " Profile pic"}
+                  alt={"Profile pic"}
                   style={imgStyle}
-                  src={user.photoURL}
+                  src={users[0].profilePic}
                 />
               ) : (
-                <div style={imgStyle}>{user.displayName.slice(0, 1)}</div>
+                <div style={imgStyle}>{users[0].name}</div>
               )}
-              <Link style={{ color: '#fcd423'}} className='focus-text' to="/dashboard">{user.displayName}</Link>
             </li>
           )}
         </div>
