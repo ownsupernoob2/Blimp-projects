@@ -1,6 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
 
+
+import {
+  getUsersInitiate,
+} from "../store/actions/profile";
 import Profile from "../components/layout/Profile";
 import Meme from "../components/layout/Meme";
 import Navbar from "../components/layout/Navbar";
@@ -9,6 +14,27 @@ import logo from "../components/assets/logo.png";
 const Home = () => {
   const navbar = useRef(null);
   const { scrollY } = useScroll();
+  const [isLoading, setIsLoading] = useState(true)
+
+  const dispatch = useDispatch();
+
+
+  
+    //Because our reducer use with key data
+    const { users } = useSelector((state) => state.data);
+  
+   
+    
+    useEffect(() => {
+      const handleDelay = async () => {
+        setIsLoading(true)
+        await dispatch(getUsersInitiate());
+        setIsLoading(false)
+        console.log("loaded")
+      };
+  
+      handleDelay();
+    }, []);
 
   const handleScroll = () => {
     if (scrollY.current > 30) {
@@ -22,6 +48,12 @@ const Home = () => {
     }
   };
 
+
+
+
+
+
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
@@ -29,7 +61,11 @@ const Home = () => {
     };
   }, []);
 
+
+
   return (
+    <>
+    {isLoading ? <div>hi</div> : 
     <div onScroll={handleScroll}>
       <nav ref={navbar} id="navbar">
         <Navbar />
@@ -161,6 +197,8 @@ const Home = () => {
       <Profile />
       <Meme />
     </div>
+    }
+    </>
   );
 };
 
