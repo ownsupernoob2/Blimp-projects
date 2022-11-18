@@ -8,6 +8,7 @@ const ballStyle = {
   width: "1rem",
   height: "1rem",
   backgroundColor: "black",
+  alignSelf: 'center',
   borderRadius: "0.5rem"
 };
 
@@ -28,18 +29,11 @@ const bounceTransition = {
 const LoadingToRedirect = () => {
   let history = useHistory();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      history.goBack();
-     }, 1500);
-
-    return () => clearInterval(interval);
-  }, [ history]);
   return (
   <div
       style={{
-        width: "2rem",
-        height: "2rem",
+        width: "100%",
+        height: "100%",
         display: "flex",
         flex: 1,
         alignItems: 'center',

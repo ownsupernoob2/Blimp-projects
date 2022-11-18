@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useHistory, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -30,15 +29,9 @@ const LoginForm = () => {
 
   const { email, password } = state;
 
-  const history = useHistory();
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (user) {
-      history.push("/");
-    }
-  }, [user, history]);
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -78,27 +71,28 @@ const LoginForm = () => {
             onChange={handleChange}
             required
           />
-      <SubmitButton type="submit">Signin</SubmitButton>
+      <SubmitButton type="submit">Sign In</SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
-      <Marginer direction="vertical" margin="1.6em" />
-      <Marginer direction="vertical" margin="1em" />
-      <MutedLink href="#">s
-        Don't have an accoun?{" "}
-        <BoldLink href="#" onClick={switchToSignup}>
-          Signup
-        </BoldLink>
-      </MutedLink>
-        <button
+      <button
               className="btn google-btn social-btn"
               type="button"
               onClick={handleGoogleSignIn}
             >
               <span>
                 <i className="fab fa-google-plus-g"></i> Sign in with Google
-              </span>{" "}
+              </span>
             </button>
+      <Marginer direction="vertical" margin="1.6em" />
+      <Marginer direction="vertical" margin="1em" />
+      <MutedLink href="#">
+        Don't have an account?{" "}
+        <BoldLink href="#" onClick={switchToSignup}>
+          Sign Up
+        </BoldLink>
+      </MutedLink>
+
            
     </BoxContainer>
   );

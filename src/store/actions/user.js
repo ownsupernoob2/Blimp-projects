@@ -1,19 +1,13 @@
 import * as types from "./actionTypes";
+import { db } from '../../config/fbConfig';
 import { auth, googleAuthProvider } from "../../config/fbConfig";
 
-export const addToBasket = (item) => ({
-  type: types.ADD_TO_BASKET,
-  payload: item,
-});
-
-export const removeFromBasket = (id) => ({
-  type: types.REMOVE_FROM_BASKET,
-  payload: id,
-});
 
 const registerStart = () => ({
   type: types.REGISTER_START,
 });
+
+
 
 const registerSuccess = ({ user, additionalData }) => ({
   type: types.REGISTER_SUCCESS,
@@ -86,6 +80,14 @@ export const registerInitiate = (email, password, displayName) => {
         user.updateProfile({
           displayName,
         });
+     
+          db.collection("users").doc().set({
+            name: displayName,
+            contactEmail: email,
+            profilePic: user.photoURL,
+            ownerId: user.uid
+          });
+         
         dispatch(registerSuccess({ user, additionalData: { displayName } }));
       })
       .catch((error) => dispatch(registerError(error.message)));
@@ -110,6 +112,12 @@ export const googleSignInInitiate = () => {
     auth
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
+        db.collection("users").doc().set({
+          name: user.displayName,
+          contactEmail: user.email,
+          profilePic: user.photoURL,
+          ownerId: user.uid
+        });
         dispatch(googleSignInSuccess(user));
       })
       .catch((error) => dispatch(googleSignInFail(error.message)));
