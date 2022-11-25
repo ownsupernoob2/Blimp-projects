@@ -3,7 +3,8 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
     users: [],
-    user: {}
+    user: {},
+    loading: true
 }
 
 const userReducer = (state=initialState, action) => {
@@ -12,11 +13,13 @@ const userReducer = (state=initialState, action) => {
             return {
                 ...state,
                 users: action.payload,
+                loading: false
             };
             case types.GET_USER:
             return {
                 ...state,
                 user: action.payload,
+                loading: false
             };
             case types.RESET:
                 return {

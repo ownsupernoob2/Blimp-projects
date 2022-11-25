@@ -9,6 +9,8 @@ import {
   reset,
   updateUserInitiate,
 } from "../store/actions/profile";
+import { storage } from '../config/fbConfig';
+
 import { logOutInitiate } from "../store/actions/user";
 
 const initialState = {
@@ -16,6 +18,7 @@ const initialState = {
   profilePic: "",
   contactEmail: "",
   rank: "",
+  description: "",
 };
 
 const Dashboard = () => {
@@ -23,15 +26,18 @@ const Dashboard = () => {
   const [editMode, setEditMode] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [userId, setUserId] = useState(null);
+  const [Url, setUrl] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
 
+
   //Destructuring
-  const { name, profilePic, contactEmail, rank } = state;
+  const { name, profilePic, contactEmail, rank, description } = state;
   const dispatch = useDispatch();
   const  auth =  useSelector((state) => ({ ...state.user }));
 
   //Because our reducer use with key data
   const { users: justStrings, user: singleUser } = useSelector((state) => state.data);
+
 
   
     const asArray = Object.entries(justStrings);
@@ -42,7 +48,24 @@ const Dashboard = () => {
   
   const users = Object.values(usersFunction)
 
+  const upload = (e) => {
+    var image = e
+    if (image == null)
+      return;
+    setUrl("Getting Download Link...")
   
+    // Sending File to Firebase Storage
+    storage.ref(`/images/${image.name}`).put(image)
+      .on("state_changed", alert("success"), alert, () => {
+  
+        // Getting Download Link
+        storage.ref("images").child(image.name).getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+            setState({ ...state, profilePic: url })
+          })
+      });
+  }
 
   useEffect(() => {
     const handleDelay = async () => {
@@ -77,35 +100,58 @@ const Dashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !rank || !contactEmail || !rank) {
+    if (!name || !profilePic || !contactEmail || !rank || !description ) {
       setErrorMsg("Please fill all input fields");
     } else {
       if (!editMode) {
         dispatch(addUserInitiate(state));
-        setState({ name: "", contactEmail: "", profilePic: "", rank: "" });
+        setState({ name: "", contactEmail: "", profilePic: "", rank: "",  description: "" });
         setErrorMsg("");
       } else {
         dispatch(updateUserInitiate(userId, state));
         setUserId(null);
         setEditMode(false);
-        setState({ name: "", contactEmail: "", profilePic: "", rank: "" });
+        setState({ name: "", contactEmail: "", profilePic: "", rank: "",  description: "" });
         setErrorMsg("");
       }
     }
   };
   return (
-    <div >
+    <div style={{display: "flex", flex: 1, justifyContent: "center"}}>
       <div>
         <div>
           <div style={{ marginTop: "100px" }} >
             {users &&
               users.map((item, index) => (
-                <div key={index}>
-                    <h4>{item.name}</h4>
-                    <img src={item.profilePic} />
-                    <h4>{item.contactEmail}</h4>
-                    <h4>{item.rank}</h4>
-                </div>
+                <figure
+
+          className="card"
+          key={index}
+        >
+          {" "}
+          <div className="profile-image">
+            <img
+              src={item.profilePic}
+              className="border-set"
+              width="200px"
+              alt="profile-sample2"
+            />
+          </div>
+          <figcaption>
+            <h3>{item.name}</h3>
+            <h5>{item.rank}</h5>
+            <br />
+            <p style={{ color: "rgb(255, 255, 255)" }}>
+              <font size={-1}>{item.description}</font>
+              <br />
+              <br />
+            </p>
+            <div className="icons">
+              <a href={"mailto:" + item.contactEmail}>Contact me here!</a>
+            </div>
+          </figcaption>
+        </figure>
+              
               ))}
           </div>
         </div>
@@ -121,7 +167,7 @@ const Dashboard = () => {
                 {errorMsg}
               </h6>
             )}
-
+            <h4>Your name</h4>
             <input
               label="Name"
               value={name || ""}
@@ -130,14 +176,21 @@ const Dashboard = () => {
               onChange={handleInputChange}
             />
             <br />
+            <h4>Image link</h4>
             <input
-              label="User"
+              label="ProfilePic"
               value={profilePic || ""}
               name="profilePic"
               type="text"
               onChange={handleInputChange}
             />
+         
+            {/* <center>
+       <input type="file"    label="User" name="profilePic" onChange={(e)=>{ upload(e.target.files[0])}}/>
+      <button onClick={upload}>Upload</button> 
+      </center> */}
             <br />
+            <h4>IYour contact email</h4>
             <input
               label="Email"
               value={contactEmail || ""}
@@ -146,6 +199,7 @@ const Dashboard = () => {
               onChange={handleInputChange}
             />
             <br />
+            <h4>Your posistion</h4>
             <input
               label="Rank"
               value={rank || ""}
@@ -153,6 +207,15 @@ const Dashboard = () => {
               type="text"
               onChange={handleInputChange}
             />
+            <h4>About you</h4>
+            <input
+              label="Description"
+              value={description || ""}
+              name="description"
+              type="text"
+              onChange={handleInputChange}
+            />
+         
             <br />
             <button
               style={{ width: "100px" }}
@@ -172,9 +235,9 @@ const Dashboard = () => {
             </>
         }
         </div>
+      <button onClick={handleLogout}>Log out</button>
       </div>
         
-      <button onClick={handleLogout}>Log out</button>
     </div>
   );
 };

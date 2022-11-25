@@ -132,12 +132,7 @@ nav {
   transition: 0.3s ease;
   border-bottom: solid #ffffff 1px;
 }
-.menu li:hover {
-  border-radius: 5px;
-  background-color: #154ab3;
-  transition: 0.3s ease;
-  border-bottom: solid #ffffff 2px;
-}
+
 .menu li {
   padding: 5px 14px;
 }
