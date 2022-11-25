@@ -61,41 +61,49 @@ const Navbar = () => {
   const  auth =  useSelector((state) => ({ ...state.user }));
   const [isLoading, setIsLoading] = useState(true)
   const [userData, setUserData] = useState(null)
+  const { users: justStrings } = useSelector((state) => state.data);
 
-  //Because our reducer use with key data
-
-
+    
+  
   const dispatch = useDispatch();
-
-   
-  useEffect(() => {
-    const handleDelay = async () => {
-      setIsLoading(true)
-      await dispatch(getUsersInitiate());
-      useSelector((state) => state.data);
-      console.log("loaded")
-    };
-
-    handleDelay();
-  }, []);
-
+  
   
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsLoading(false)
-      console.log('timer finished')
-     }, 4000);
-
-    return () => clearInterval(interval);
+dispatch(getUsersInitiate());
   }, []);
 
-    const asArray = Object.entries(justStrings);
+
   
-  const filtered = asArray.filter(([key, value]) => value.ownerId === auth.user.uid)
+    useEffect(() => {
+
+      if(userData === null) {
+        setIsLoading(true)
+        console.log("waiting for data")
+      } else {
+        setIsLoading(false)
+        console.log("Found user data")
+      }
+
+      if(auth.user){
+      const asArray = Object.entries(justStrings);
+
+      const filtered = asArray.filter(([key, value]) => value.ownerId === auth.user.uid)
+      
+      const usersFunction = Object.fromEntries(filtered);
+      
+      setUserData(Object.values(usersFunction))
+      const interval = setInterval(() => {
+       }, 1500);
   
-  const usersFunction = Object.fromEntries(filtered);
-  
-  const users = Object.values(usersFunction)
+       setIsLoading(false)
+       return () => clearInterval(interval);
+
+      }else {
+        setIsLoading(false)
+      }
+
+      
+    })
 
 
   let linkStyle = {
@@ -162,7 +170,7 @@ const Navbar = () => {
             <a href="#about">About</a>
           </li>
           
-          {  isLoading ?              <li
+          {   !justStrings  ?    <li
               style={{
                 display: "flex",
                 paddingLeft: 15,
@@ -172,22 +180,11 @@ const Navbar = () => {
                 justifyContent: "center",
               }}
             >
-              <Link className='focus-text' to="/dashboard">Loading...</Link>
+              <p className='focus-text'>Loading...</p>
            </li>
            :
-            !auth.user && !justStrings ? (
-            <li     style={{
-                display: "flex",
-                paddingLeft: 20,
-                paddingRight: 20,
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-              }}>
-              <Link to="/login">Login</Link>
-            </li>
-          ) : (
-            <li
+            !auth.user  ? (
+              <li
               style={{
                 display: "flex",
                 paddingLeft: 15,
@@ -197,18 +194,40 @@ const Navbar = () => {
                 justifyContent: "center",
               }}
             >
-              <Link className='focus-text' to="/dashboard">{users[0].name}</Link>
-              {users[0].profilePic ? (
+              <Link className='focus-text' to="/login">Login</Link>
+           </li>
+          ) : (
+
+            userData &&
+              userData.map((item, index) => (
+                   <li
+              style={{
+                display: "flex",
+                paddingLeft: 15,
+                paddingRight: 35,
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              key={index}
+            >
+              <Link className='focus-text' to="/dashboard">{item.name}</Link>
+              {item.profilePic ? (
                 <img
                   alt={"Profile pic"}
                   style={imgStyle}
-                  src={users[0].profilePic}
+                  src={userData[0].profilePic}
                 />
               ) : (
-                <div style={imgStyle}>{users[0].name}</div>
+                <div style={imgStyle}>{item.name.slice(0, 1)}</div>
               )}
             </li>
+
+              ))
+            
+            
           )}
+          
         </div>
       </ul>
     </>
